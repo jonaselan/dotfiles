@@ -5,12 +5,6 @@ highlight-selected@0.13.1
 intentions@1.1.5
 language-blade@0.38.0
 language-haml@0.25.2
-linter@2.2.0
-linter-erb@1.1.0
-linter-htmlhint@1.4.0
-linter-php@1.5.1
-linter-ruby@1.2.6
-linter-ui-default@1.6.10
 minimap@4.29.7
 minimap-cursorline@0.2.0
 minimap-find-and-replace@4.5.2

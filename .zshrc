@@ -61,6 +61,9 @@ ZSH_THEME="intheloop"
 plugins=(
   git
   docker-compose
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  autojump
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -84,7 +87,8 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-
+#export GREGG_JWT_SECRET=greggautenticacao
+#export GREGG_DB_CONNECTION=mongodb://gregg:gregg@ds121014.mlab.com:21014/gregg-db
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -93,3 +97,22 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias robo3t='/usr/local/bin/robo3t/bin/robo3t'
+#source ~/.oh-my-zsh/custom/prompt.sh
+alias cat="bat"
+alias serve="php artisan serve"
+alias horizon="php artisan horizon"
+alias tinker="php artisan tinker"
+alias migrate="php artisan migrate"
+alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
+alias pf="vendor/bin/phpunit --filter "
+alias pu="vendor/bin/phpunit" 
+
+export NOS13BOT='622370275:AAE-57lCi038ia3RDqRqZuW2-jUjPmZfr6k'
+
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin:$HOME/.local/bin"
+export GEM_HOME="$HOME/.gem"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

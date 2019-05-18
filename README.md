@@ -1,13 +1,13 @@
 # Personal-config
 
-# VIM 
+## VIM 
 
 colocar no home
 
-# ATOM
+## ATOM
 
 apm install --packages-file package-list.txt
 
-# VSCODE
+## VSCODE
 
-usar esse pacote https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
+usar [esse](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) pacote

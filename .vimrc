@@ -8,7 +8,7 @@ set number
 set wildmenu
 set showcmd
 " Enable use of the mouse for all modes
-set mouse=ai
+" set mouse=ai
 " Always display the status line, even if only one window is displayed
 set laststatus=2
 " Display the cursor position on the last line of the screen or in the status

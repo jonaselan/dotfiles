@@ -87,8 +87,6 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-#export GREGG_JWT_SECRET=greggautenticacao
-#export GREGG_DB_CONNECTION=mongodb://gregg:gregg@ds121014.mlab.com:21014/gregg-db
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -106,9 +104,7 @@ alias tinker="php artisan tinker"
 alias migrate="php artisan migrate"
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
 alias pf="vendor/bin/phpunit --filter "
-alias pu="vendor/bin/phpunit" 
-
-export NOS13BOT='622370275:AAE-57lCi038ia3RDqRqZuW2-jUjPmZfr6k'
+alias pu="vendor/bin/phpunit"
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.

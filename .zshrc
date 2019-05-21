@@ -95,17 +95,24 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias robo3t='/usr/local/bin/robo3t/bin/robo3t'
-#source ~/.oh-my-zsh/custom/prompt.sh
-alias cat="bat"
-alias serve="php artisan serve"
-alias horizon="php artisan horizon"
-alias tinker="php artisan tinker"
-alias migrate="php artisan migrate"
-alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
-alias pf="vendor/bin/phpunit --filter "
-alias pu="vendor/bin/phpunit"
 
+#source ~/.oh-my-zsh/custom/prompt.sh
+
+#general
+alias cat="bat"
+
+# php
+alias tinker="php artisan tinker"
+alias horizon="php artisan horizon"
+alias serve="php artisan serve"
+alias migrate="php artisan migrate"
+alias phpunit="vendor/bin/phpunit"
+alias pu="phpunit"
+alias pf="phpunit --filter"
+
+# git
+alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
+alias grevert="git reset HEAD~"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.local/bin"

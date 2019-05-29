@@ -104,8 +104,45 @@ alias grevert="git reset HEAD~"
 #zsh
 alias reload!=". ~/.zshrc"
 
+# exa
+alias ls="exa"
+alias l="exa -a"
+alias ll="exa -lgh"
+alias la="exa -lagh"
+alias lt="exa -T"
+alias lg="exa -lagh --git"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.local/bin"
 export GEM_HOME="$HOME/.gem"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Usage: extract <file>
+# Description: extracts archived files / mounts disk images
+# Note: .dmg/hdiutil is macOS-specific.
+extract () {
+    if [ -f $1 ]; then
+        case $1 in
+            *.tar.bz2)  tar -jxvf $1                        ;;
+            *.tar.gz)   tar -zxvf $1                        ;;
+            *.bz2)      bunzip2 $1                          ;;
+            *.dmg)      hdiutil mount $1                    ;;
+            *.gz)       gunzip $1                           ;;
+            *.tar)      tar -xvf $1                         ;;
+            *.tbz2)     tar -jxvf $1                        ;;
+            *.tgz)      tar -zxvf $1                        ;;
+            *.zip)      unzip $1                            ;;
+            *.ZIP)      unzip $1                            ;;
+            *.pax)      cat $1 | pax -r                     ;;
+            *.pax.Z)    uncompress $1 --stdout | pax -r     ;;
+            *.rar)      unrar x $1                          ;;
+            *.Z)        uncompress $1                       ;;
+            *)          echo "'$1' cannot be extracted/mounted via extract()" ;;
+        esac
+     else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+

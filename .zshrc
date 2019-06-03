@@ -7,8 +7,12 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="intheloop"
+ZSH_THEME="intheloop" #spaceship
 
+SPACESHIP_PHP_SHOW=false
+SPACESHIP_NODE_SHOW=false
+SPACESHIP_EXEC_TIME_SHOW=false
+ 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -60,10 +64,14 @@ HIST_STAMPS="dd/mm/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  docker-compose
+  # laravel
+  # docker-compose
+  extract
   zsh-autosuggestions
   zsh-syntax-highlighting
   autojump
+  fzf
+  zsh
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -89,13 +97,9 @@ source $ZSH/oh-my-zsh.sh
 alias cat="bat"
 
 # php
-alias tinker="php artisan tinker"
-alias horizon="php artisan horizon"
-alias serve="php artisan serve"
-alias migrate="php artisan migrate"
-alias phpunit="vendor/bin/phpunit"
-alias pu="phpunit"
-alias pf="phpunit --filter"
+#alias phpunit="vendor/bin/phpunit"
+#alias pu="phpunit"
+#alias pf="phpunit --filter"
 
 # git
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
@@ -115,34 +119,3 @@ alias lg="exa -lagh --git"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.local/bin"
 export GEM_HOME="$HOME/.gem"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Usage: extract <file>
-# Description: extracts archived files / mounts disk images
-# Note: .dmg/hdiutil is macOS-specific.
-extract () {
-    if [ -f $1 ]; then
-        case $1 in
-            *.tar.bz2)  tar -jxvf $1                        ;;
-            *.tar.gz)   tar -zxvf $1                        ;;
-            *.bz2)      bunzip2 $1                          ;;
-            *.dmg)      hdiutil mount $1                    ;;
-            *.gz)       gunzip $1                           ;;
-            *.tar)      tar -xvf $1                         ;;
-            *.tbz2)     tar -jxvf $1                        ;;
-            *.tgz)      tar -zxvf $1                        ;;
-            *.zip)      unzip $1                            ;;
-            *.ZIP)      unzip $1                            ;;
-            *.pax)      cat $1 | pax -r                     ;;
-            *.pax.Z)    uncompress $1 --stdout | pax -r     ;;
-            *.rar)      unrar x $1                          ;;
-            *.Z)        uncompress $1                       ;;
-            *)          echo "'$1' cannot be extracted/mounted via extract()" ;;
-        esac
-     else
-        echo "'$1' is not a valid file"
-    fi
-}
-
-

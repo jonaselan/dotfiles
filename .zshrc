@@ -98,6 +98,8 @@ alias cat="bat"
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 
 # php
+alias pat="php artisan tinker"
+alias pah="php artisan horizon"
 #alias phpunit="vendor/bin/phpunit"
 #alias pu="phpunit"
 #alias pf="phpunit --filter"

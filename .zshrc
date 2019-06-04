@@ -95,6 +95,7 @@ source $ZSH/oh-my-zsh.sh
 
 #general
 alias cat="bat"
+alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 
 # php
 #alias phpunit="vendor/bin/phpunit"

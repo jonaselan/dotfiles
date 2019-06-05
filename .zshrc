@@ -70,8 +70,6 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   autojump
-  fzf
-  zsh
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -83,12 +81,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -118,6 +111,11 @@ alias ll="exa -lgh"
 alias la="exa -lagh"
 alias lt="exa -T"
 alias lg="exa -lagh --git"
+
+# ubuntu
+alias update="sudo apt update"
+alias upgrade="sudo apt upgrade"
+alias update_upgrade="sudo apt update && sudo apt upgrade"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.local/bin"

@@ -70,6 +70,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   autojump
+  gitfast
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -99,7 +100,11 @@ alias pah="php artisan horizon"
 
 # git
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
-alias grevert="git reset HEAD~"
+# remove the commit from branch
+alias grh="git reset HEAD~ --hard"
+# undo the last commit, but leave the changes available
+alias grs="git reset HEAD~ --soft"
+
 
 #zsh
 alias reload!=". ~/.zshrc"

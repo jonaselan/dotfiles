@@ -11,6 +11,14 @@
   title_transmit_fg_color = "#bd93f9"
   title_use_system_font = False
 [keybindings]
+  line_down = <Primary>Down
+  line_up = <Primary>Up
+  page_down = <Primary><Shift>Page_Down
+  page_up = <Primary><Shift>Page_Up
+  resize_down = <Primary><Shift>Down
+  resize_left = <Primary><Shift>Left
+  resize_right = <Primary><Shift>Right
+  resize_up = <Primary><Shift>Up
   split_horiz = <Primary>o
   split_vert = <Primary>e
 [layouts]

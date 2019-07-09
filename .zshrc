@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/jonaselan/.oh-my-zsh
+  export ZSH=/home/$USER/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -70,7 +70,6 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   autojump
-  gitfast
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,7 +100,7 @@ alias pah="php artisan horizon"
 # git
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
 # remove the commit from branch
-alias grh="git reset HEAD~ --hard"
+alias grhd="git reset HEAD~ --hard"
 # undo the last commit, but leave the changes available
 alias grs="git reset HEAD~ --soft"
 
@@ -121,7 +120,3 @@ alias lg="exa -lagh --git"
 alias update="sudo apt update"
 alias upgrade="sudo apt upgrade"
 alias update_upgrade="sudo apt update && sudo apt upgrade"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin:$HOME/.local/bin"
-export GEM_HOME="$HOME/.gem"

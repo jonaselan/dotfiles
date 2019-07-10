@@ -69,7 +69,8 @@ plugins=(
   extract
   zsh-autosuggestions
   zsh-syntax-highlighting
-  autojump
+  # autojump
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh

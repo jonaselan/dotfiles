@@ -1,3 +1,26 @@
+" Install vim-plugin                                                                                                                                                                                               
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" :PlugInstall
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vim-airline/vim-airline'
+" Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'mhinz/vim-signify'
+
+call plug#end()
+
+" Configure NERDTree
+" autocmd vimenter * NERDTree
+map <C-b> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 set autoindent
 set tabstop=2       " The width of a TAB is set to 4.
 set shiftwidth=2    " Indents will have a width of 4

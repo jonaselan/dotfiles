@@ -43,12 +43,14 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(
   git
   # laravel
-  docker-compose
+  # docker-compose
   extract
   zsh-autosuggestions
   zsh-syntax-highlighting
-  autojump
-  fzf
+  autojump 
+  fzf # find!
+  bgnotify # nofity long task 
+  sudo # double esc
 )
 
 source $ZSH/oh-my-zsh.sh

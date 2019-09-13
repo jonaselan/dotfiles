@@ -63,13 +63,13 @@ alias pah="php artisan horizon"
 
 # git
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
-alias gclean="git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"  # TEST delete local branch merged with master
+# alias gcupdate="git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"  # TEST delete local branch merged with master
+alias gcotop="git checkout $(git log --branches -1 --pretty=format:"%H")" # go to last commit from current branch
 
 # remove the commit from branch
 alias grhd="git reset HEAD~ --hard"
 # undo the last commit, but leave the changes available
 alias grs="git reset HEAD~ --soft"
-
 
 #zsh
 alias reload!=". ~/.zshrc"

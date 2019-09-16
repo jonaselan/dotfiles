@@ -51,8 +51,9 @@ export EDITOR='vim'
 
 #general
 alias cat="bat"
+alias bat="cat"
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
-alias vimrc='${=EDITOR} ~/.vimrc' # Quick access to the ~/.zshrc file
+alias vimrc='${=EDITOR} ~/.vimrc' # Quick access to the ~/.vimrc file
 
 # php
 alias pat="php artisan tinker"
@@ -96,7 +97,6 @@ alias rm='rm -i'
 alias dev="$HOME/dev"
 
 export SMPCPATH=/home/jonaselan/Desktop/setup-my-pc
-
 
 # fstash - easier way to deal with stashes
 # type fstash to get a list of your stashes

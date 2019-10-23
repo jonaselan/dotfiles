@@ -1,1 +1,17 @@
-/home/jonaselan/.config/sxhkd/sxhkdrc
+ctrl + F8
+ dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+ctrl + F7
+ dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+ctrl + F9
+ dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+ctrl + F10
+  amixer -D pulse sset Master 5%-
+
+ctrl + F11
+  amixer -D pulse sset Master 5%+
+
+ctrl + F12
+  flameshot gui      

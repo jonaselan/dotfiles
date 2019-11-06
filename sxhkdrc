@@ -14,4 +14,8 @@ ctrl + F11
   amixer -D pulse sset Master 5%+
 
 ctrl + F12
-  flameshot gui      
+  flameshot gui  
+
+# make sxhkd reload its configuration files:
+ctrl + F5
+	pkill -USR1 -x sxhkd

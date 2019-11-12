@@ -36,9 +36,9 @@ plugins=(
   extract
   zsh-autosuggestions
   zsh-syntax-highlighting
-  autojump 
+  autojump
   fzf # find!
-  bgnotify # nofity long task 
+  bgnotify # nofity long task
   sudo # double esc
 )
 
@@ -46,18 +46,23 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+source ~/forgit/forgit.plugin.sh
+source ~/zsh-interactive/zsh-interactive-cd.plugin.zsh
 
 #general
 alias cat="bat"
 alias bat="cat"
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias vimrc='${=EDITOR} ~/.vimrc' # Quick access to the ~/.vimrc file
+alias ping='prettyping --nolegend'
+alias dev="$HOME/dev"
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias du="ncdu -rr -x --exclude .git --exclude node_modules"
+alias help='tldr'
 
 # php
-alias pat="php artisan tinker"
-alias pah="php artisan horizon"
+#alias pat="php artisan tinker"
+#alias pah="php artisan horizon"
 #alias phpunit="vendor/bin/phpunit"
 #alias pu="phpunit"
 #alias pf="phpunit --filter"
@@ -83,7 +88,7 @@ alias la="exa -lagh"
 alias lt="exa -T"
 alias lg="exa -lagh --git"
 
-# debin
+# debian
 alias update="sudo apt update"
 alias upgrade="sudo apt upgrade"
 alias update_upgrade="sudo apt update && sudo apt upgrade"
@@ -92,9 +97,6 @@ alias update_upgrade="sudo apt update && sudo apt upgrade"
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -i'
-
-# general 
-alias dev="$HOME/dev"
 
 export SMPCPATH=/home/jonaselan/Desktop/setup-my-pc
 
@@ -127,25 +129,13 @@ fstash() {
   done
 }
 
-# checkout git branch (including remote branches) with FZF
-fgco() {
+# fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
+gcof() {
   local branches branch
-  branches=$(git branch --all | grep -v HEAD) &&
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
-
-# git log browser with FZF
-fgl() {
-  git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-      --bind "ctrl-m:execute:
-                (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-                {}
-FZF-EOF"
 }
 
 compress() {

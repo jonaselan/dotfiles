@@ -15,7 +15,7 @@ SPACESHIP_EXEC_TIME_SHOW=false
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -46,8 +46,8 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
-source ~/forgit/forgit.plugin.sh
-source ~/zsh-interactive/zsh-interactive-cd.plugin.zsh
+source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.sh
+source $ZSH_CUSTOM/plugins/zsh-interactive/zsh-interactive-cd.plugin.zsh
 
 #general
 alias cat="bat"

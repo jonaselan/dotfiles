@@ -23,7 +23,7 @@ map <C-i> :PlugInstall<CR>
 
 " fzf with mru 
 map <C-p> :FZFMru<CR>
-map <C-s> :w<CR>
+" map <C-s> :w<CR> Don't why when I execute this my vim crash :/
 
 " Configure NERDTree
 " autocmd vimenter * NERDTree
@@ -32,10 +32,16 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
+let mapleader = " "
 
 " Fast saving
 nmap <leader>w :w!<cr>
+" Fast exit/saving
+nmap <leader>x :x<cr>
+" search things and 'cs' to replace
+vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+    \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+omap s :normal vs<CR>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)

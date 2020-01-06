@@ -80,6 +80,9 @@ alias grs="git reset HEAD~ --soft"
 #zsh
 alias reload!=". ~/.zshrc"
 
+# docker 
+alias dcdangling="docker rmi \$(docker images -f \"dangling=true\" -q)" # remove uname images 
+
 # exa
 alias ls="exa"
 alias l="exa -a"

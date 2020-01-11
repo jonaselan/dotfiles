@@ -6,10 +6,6 @@ export ZSH=/home/$USER/.oh-my-zsh
 
 ZSH_THEME="intheloop" #spaceship
 
-SPACESHIP_PHP_SHOW=false
-SPACESHIP_NODE_SHOW=false
-SPACESHIP_EXEC_TIME_SHOW=false
-
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
@@ -59,6 +55,7 @@ alias dev="$HOME/dev"
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias du="ncdu -rr -x --exclude .git --exclude node_modules"
 alias help='tldr'
+alias h="history"
 
 # php
 #alias pat="php artisan tinker"
@@ -77,11 +74,11 @@ alias grhd="git reset HEAD~ --hard"
 # undo the last commit, but leave the changes available
 alias grs="git reset HEAD~ --soft"
 
+# docker
+alias dcdangling="docker rmi \$(docker images -f \"dangling=true\" -q)"
+
 #zsh
 alias reload!=". ~/.zshrc"
-
-# docker 
-alias dcdangling="docker rmi \$(docker images -f \"dangling=true\" -q)" # remove uname images 
 
 # exa
 alias ls="exa"
@@ -92,9 +89,16 @@ alias lt="exa -T"
 alias lg="exa -lagh --git"
 
 # debian
-alias update="sudo apt update"
+# alias update="sudo apt update"
+# alias upgrade="sudo apt upgrade"
+# alias update_upgrade="sudo apt update && sudo apt upgrade"
+# alias inst="sudo apt install"
+
+# arch
+alias update="sudo pacman -Syy"
 alias upgrade="sudo apt upgrade"
-alias update_upgrade="sudo apt update && sudo apt upgrade"
+alias update_upgrade="sudo pacman -Syu"
+# alias inst="pacman -S"
 
 # file manipulation
 alias cp='cp -iv'

@@ -13,6 +13,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf'
 Plug 'pbogut/fzf-mru.vim'
+Plug 'preservim/nerdcommenter'
 
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'mhinz/vim-signify'
@@ -27,7 +28,7 @@ map <C-p> :FZFMru<CR>
 
 " Configure NERDTree
 " autocmd vimenter * NERDTree
-map <C-b> :NERDTreeToggle<CR>
+nmap <C-b> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " With a map leader it's possible to do extra key combinations

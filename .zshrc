@@ -68,6 +68,7 @@ alias h="history"
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
 # alias gcupdate="git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"  # TEST delete local branch merged with master
 alias gcotop="git checkout $(git log --branches -1 --pretty=format:"%H")" # go to last commit from current branch
+alias grecent="git recent"
 
 # remove the commit from branch
 alias grhd="git reset HEAD~ --hard"
@@ -95,10 +96,10 @@ alias lg="exa -lagh --git"
 # alias inst="sudo apt install"
 
 # arch
-alias update="sudo pacman -Syy"
-alias upgrade="sudo apt upgrade"
-alias update_upgrade="sudo pacman -Syu"
-# alias inst="pacman -S"
+# alias update="sudo pacman -Syy"
+# alias upgrade="sudo apt upgrade"
+# alias update_upgrade="sudo pacman -Syu"
+# alias inst="sudo pacman -S"
 
 # file manipulation
 alias cp='cp -iv'
@@ -106,6 +107,10 @@ alias mv='mv -iv'
 alias rm='rm -i'
 
 export SMPCPATH=/home/jonaselan/Desktop/setup-my-pc
+
+vman () {
+  man $1 | vim -
+}
 
 # fstash - easier way to deal with stashes
 # type fstash to get a list of your stashes
@@ -137,7 +142,7 @@ fstash() {
 }
 
 # fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
-gcof() {
+fgco() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |

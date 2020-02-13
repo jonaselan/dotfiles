@@ -1,7 +1,8 @@
 [global_config]
   enabled_plugins = ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   sticky = True
-  title_font = Fira Code Medium 9
+  suppress_multiple_term_dialog = True
+  title_font = JetBrains Mono 10
   title_hide_sizetext = True
   title_inactive_bg_color = "#282a36"
   title_inactive_fg_color = "#f8f8f2"
@@ -38,5 +39,5 @@
     background_type = transparent
     cursor_color = "#bbbbbb"
     foreground_color = "#f8f8f2"
-    palette = "#44475a:#ff5555:#50fa7b:#f1fa8c:#97c0c8:#bd93f9:#ff79c6:#94a3a5:#8BE9FD:#ff5555:#50fa7b:#f1fa8c:#8be9fd:#bd93f9:#ff79c6:#ffffff"
+    palette = "#44475a:#ff5555:#50fa7b:#f1fa8c:#97c0c8:#bd93f9:#ff79c6:#94a3a5:#8be9fd:#ff5555:#50fa7b:#f1fa8c:#8be9fd:#bd93f9:#ff79c6:#ffffff"
     scrollback_infinite = True

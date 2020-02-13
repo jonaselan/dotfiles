@@ -53,7 +53,7 @@ alias vimrc='${=EDITOR} ~/.vimrc' # Quick access to the ~/.vimrc file
 alias ping='prettyping --nolegend'
 alias dev="$HOME/dev"
 alias preview="fzf --preview 'bat --color \"always\" {}'"
-alias du="ncdu -rr -x --exclude .git --exclude node_modules"
+alias du="ncdu -rr -x --color dark --exclude .git --exclude node_modules --exclude-caches"
 alias help='tldr'
 alias h="history"
 
@@ -64,11 +64,20 @@ alias h="history"
 #alias pu="phpunit"
 #alias pf="phpunit --filter"
 
+# arch
+alias update="sudo pacman -Syy"
+alias upgrade="sudo apt upgrade"
+alias update_upgrade="sudo pacman -Syu"
+alias inst="sudo pacman -S"
+alias clean='sudo pacman -Rs $(pacman -Qdtq)' # removes orphan packages from Archlinux
+
 # git
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
 # alias gcupdate="git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"  # TEST delete local branch merged with master
 alias gcotop="git checkout $(git log --branches -1 --pretty=format:"%H")" # go to last commit from current branch
 alias grecent="git recent"
+alias gsno="git show --name-only"
+alias gsta="git stash save --include-untracked"
 
 # remove the commit from branch
 alias grhd="git reset HEAD~ --hard"
@@ -142,7 +151,7 @@ fstash() {
 }
 
 # fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
-fgco() {
+gswf() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
@@ -153,3 +162,6 @@ fgco() {
 compress() {
     tar cvzf $1.tar.gz $1
 }
+
+source /home/jonaselan/.config/broot/launcher/bash/br
+

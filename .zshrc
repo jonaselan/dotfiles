@@ -163,5 +163,10 @@ compress() {
     tar cvzf $1.tar.gz $1
 }
 
-source /home/jonaselan/.config/broot/launcher/bash/br
+copy() {
+  xclip -sel clip < $1
+}
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /home/$USER/.config/broot/launcher/bash/br

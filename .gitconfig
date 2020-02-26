@@ -5,17 +5,27 @@
   editor = vim
   excludesfile = /home/jonaselan/.gitignore_global
   autocrlf = input
-  pager = delta --dark
-# pager = diff-so-fancy | less --tabs=1,5 -RFX
-# [color "diff"]
-#   meta = "yellow bold"
-#   commit = "green bold"
-#   frag = "magenta bold"
-#   old = "red bold"
-#   new = "green bold"
-#   whitespace = "red reverse"
-# [color "diff-highlight"]
-#   oldNormal = "red bold"
-#   oldHighlight = "red bold 52"
-#   newNormal = "green bold"
-#   newHighlight = "green bold 22"
+#  pager = delta --dark
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[color "diff"]
+  meta = "yellow bold"
+  commit = "green bold"
+  frag = "magenta bold"
+  old = "red bold"
+  new = "green bold"
+  whitespace = "red reverse"
+[color "diff-highlight"]
+  oldNormal = "red bold"
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"
+[status]
+  showUntrackedFiles = all
+  showStash=true
+  short=true
+[transfer]
+  fsckobjects = true
+[rerere]
+	enabled = true
+[sequence]
+	editor = interactive-rebase-tool

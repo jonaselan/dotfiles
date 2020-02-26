@@ -53,9 +53,10 @@ alias vimrc='${=EDITOR} ~/.vimrc' # Quick access to the ~/.vimrc file
 alias ping='prettyping --nolegend'
 alias dev="$HOME/dev"
 alias preview="fzf --preview 'bat --color \"always\" {}'"
-alias du="ncdu -rr -x --exclude .git --exclude node_modules"
+alias du="ncdu -rr -x --color dark --exclude .git --exclude node_modules --exclude-caches"
 alias help='tldr'
 alias h="history"
+alias lsbr="br -dp"
 
 # php
 #alias pat="php artisan tinker"
@@ -64,11 +65,20 @@ alias h="history"
 #alias pu="phpunit"
 #alias pf="phpunit --filter"
 
+# arch
+alias update="sudo pacman -Syy"
+alias upgrade="sudo apt upgrade"
+alias update_upgrade="sudo pacman -Syu"
+alias inst="sudo pacman -S"
+alias clean='sudo pacman -Rs $(pacman -Qdtq)' # removes orphan packages from Archlinux
+
 # git
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
 # alias gcupdate="git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"  # TEST delete local branch merged with master
 alias gcotop="git checkout $(git log --branches -1 --pretty=format:"%H")" # go to last commit from current branch
 alias grecent="git recent"
+alias gsno="git show --name-only"
+alias gsta="git stash save --include-untracked"
 
 # remove the commit from branch
 alias grhd="git reset HEAD~ --hard"
@@ -115,34 +125,46 @@ vman () {
 # fstash - easier way to deal with stashes
 # type fstash to get a list of your stashes
 # enter shows you the contents of the stash
-# ctrl-d shows a diff of the stash against your current HEAD
-# ctrl-b checks the stash out as a branch, for easier merging
 fstash() {
-  local out q k sha
-  while out=$(
-    git stash list --pretty="%C(yellow)%h %>(14)%Cgreen%cr %C(blue)%gs" |
-    fzf --ansi --no-sort --query="$q" --print-query \
-        --expect=ctrl-d,ctrl-b);
-  do
-    mapfile -t out <<< "$out"
-    q="${out[0]}"
-    k="${out[1]}"
-    sha="${out[-1]}"
-    sha="${sha%% *}"
-    [[ -z "$sha" ]] && continue
-    if [[ "$k" == 'ctrl-d' ]]; then
-      git diff $sha
-    elif [[ "$k" == 'ctrl-b' ]]; then
-      git stash branch "stash-$sha" $sha
-      break;
-    else
-      git stash show -p $sha
-    fi
-  done
+  while out=$(git stash list "$@" |
+            fzf --ansi --no-sort --reverse --print-query --query="$query"      \
+                --expect=ctrl-m,ctrl-b,del \
+                --preview-window=bottom:60% \
+                --preview 'git show --patience --stat --pretty=oneline --color=always \
+                                -p (echo {} | cut -d: -f1 | less -R)' \
+#                                  ^^ dropped quotes and changed $( to ( for fish subshell. ick.
+            );
+do
+    # Tokenize selection by newline
+    selection=("${(f)out}")
+
+    # Keep the query accross fzf calls
+    query="$selection[1]"
+
+    # Represents the stash, e.g. stash{1}
+    reflog_selector=$(echo "$selection[3]" | cut -d ':' -f 1)
+
+    case "$selection[2]" in
+        # enter or ctrl-m is just a diff
+        ctrl-m)
+            git diff --patience --color=always -p "$reflog_selector" | less -R
+            ;;
+        # ctrl-b checks out the stash as a branch and removes the stash
+        ctrl-b)
+            sha=$(echo "$selection[3]" | grep -o '[a-f0-9]\{7\}')
+            git stash branch "stash-$sha" "$reflog_selector"
+            break
+            ;;
+        # del will drop the stash
+        del)
+            git stash drop "$reflog_selector"
+            ;;
+    esac
+done
 }
 
-# fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
-fgco() {
+# fgsw - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
+fgsw() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
@@ -150,6 +172,28 @@ fgco() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-compress() {
-    tar cvzf $1.tar.gz $1
+# fgc - checkout git commit
+fgc() {
+  local commits commit
+  commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+  commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+  git checkout $(echo "$commit" | sed "s/ .*//")
 }
+
+# gbclean Delete any local branches whose remote has been deleted
+gbclean() {
+  git remote prune origin
+  git branch -vv | grep "origin/.*: gone]" | awk '{print $1}' | xargs git branch -D
+}
+
+compress() {
+  tar cvzf $1.tar.gz $1
+}
+
+copy() {
+  xclip -sel clip < $1
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /home/$USER/.config/broot/launcher/bash/br

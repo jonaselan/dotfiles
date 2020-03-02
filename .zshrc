@@ -71,6 +71,15 @@ alias lsbr="br -dp"
 #alias pu="phpunit"
 #alias pf="phpunit --filter"
 
+# adonis
+alias ads='adonis serve --dev --debug'
+alias adrepl='adonis repl'
+alias adt='adonis test'
+alias admt='adonis migration:run'
+alias admtr='adonis migration:rollback'
+alias admts='adonis migration:status'
+alias adroute='adonis route:list'
+
 # arch
 alias update="sudo pacman -Syy"
 alias upgrade="sudo apt upgrade"

@@ -6,6 +6,12 @@ export ZSH=/home/$USER/.oh-my-zsh
 
 ZSH_THEME="intheloop" #spaceship
 
+if [ -e /usr/bin/fortune ] && [ -e /usr/bin/cowsay ]; then
+  fortune | cowsay
+else
+  echo "install fortune and cowsay for fun"
+fi
+
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
@@ -65,6 +71,15 @@ alias lsbr="br -dp"
 #alias pu="phpunit"
 #alias pf="phpunit --filter"
 
+# adonis
+alias ads='adonis serve --dev --debug'
+alias adrepl='adonis repl'
+alias adt='adonis test'
+alias admt='adonis migration:run'
+alias admtr='adonis migration:rollback'
+alias admts='adonis migration:status'
+alias adroute='adonis route:list'
+
 # arch
 alias update="sudo pacman -Syy"
 alias upgrade="sudo apt upgrade"
@@ -76,7 +91,6 @@ alias clean='sudo pacman -Rs $(pacman -Qdtq)' # removes orphan packages from Arc
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
 # alias gcupdate="git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"  # TEST delete local branch merged with master
 alias gcotop="git checkout $(git log --branches -1 --pretty=format:"%H")" # go to last commit from current branch
-alias grecent="git recent"
 alias gsno="git show --name-only"
 alias gsta="git stash save --include-untracked"
 

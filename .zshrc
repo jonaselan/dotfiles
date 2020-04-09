@@ -71,21 +71,23 @@ alias lsbr="br -dp"
 #alias pu="phpunit"
 #alias pf="phpunit --filter"
 
+# rails
+alias rc='rails console'
+alias rs='rails server'
+alias rdm='rake db:migrate'
+alias rdr='rake db:rollback'
+alias rds='rake db:seed'
+alias rdrs='rake db:reset'
+alias rr='rake routes'
+
 # adonis
 alias ads='adonis serve --dev --debug'
 alias adrepl='adonis repl'
-alias adt='adonis test'
+alias adt='adonis test -b'
 alias admt='adonis migration:run'
 alias admtr='adonis migration:rollback'
 alias admts='adonis migration:status'
 alias adroute='adonis route:list'
-
-# arch
-alias update="sudo pacman -Syy"
-alias upgrade="sudo apt upgrade"
-alias update_upgrade="sudo pacman -Syu"
-alias inst="sudo pacman -S"
-alias clean='sudo pacman -Rs $(pacman -Qdtq)' # removes orphan packages from Archlinux
 
 # git
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
@@ -120,18 +122,23 @@ alias lg="exa -lagh --git"
 # alias inst="sudo apt install"
 
 # arch
-# alias update="sudo pacman -Syy"
-# alias upgrade="sudo apt upgrade"
-# alias update_upgrade="sudo pacman -Syu"
-# alias inst="sudo pacman -S"
+alias update="sudo pacman -Syy"
+alias upgrade="sudo pacman -Syu"
+alias inst="sudo pacman -S"
+alias clean='sudo pacman -Rs $(pacman -Qdtq)' # removes orphan packages from Archlinux
 
 # file manipulation
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -i'
 
+export ANDROID_HOME=~/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 export SMPCPATH=/home/jonaselan/Desktop/setup-my-pc
 
+# use vim for man pages
 vman () {
   man $1 | vim -
 }

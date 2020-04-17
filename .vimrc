@@ -11,9 +11,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf'
-Plug 'pbogut/fzf-mru.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Plug 'pbogut/fzf-mru.vim'
 Plug 'preservim/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
 
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'mhinz/vim-signify'
@@ -22,18 +24,18 @@ call plug#end()
 
 map <C-i> :PlugInstall<CR>
 
-" fzf with mru 
-map <C-p> :FZFMru<CR>
-" map <C-s> :w<CR> Don't why when I execute this my vim crash :/
-
 " Configure NERDTree
 " autocmd vimenter * NERDTree
 nmap <C-b> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" setup fzf 
+nnoremap <c-p> :Files<cr>
+" nnoremap <c-f> :Rg<space>
+
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = " "
+let mapleader="\<space>"
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -54,19 +56,20 @@ map <c-f> /
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
-set tabstop=2       " The width of a TAB is set to 4.
+set ai "auto indent
+set si "smart indent
+set wrap "wrap lines
+set tabstop=2       " the width of a tab is set to 4.
 set shiftwidth=2    " Indents will have a width of 4
 set softtabstop=2   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
 " show number in lef
-" set number          
+" set number         
+set relativenumber
 set wildmenu
 set showcmd
 " Enable use of the mouse for all modes
-" set mouse=ai
+set mouse=ai
 " Always display the status line, even if only one window is displayed
 set laststatus=2
 " Format the status line

@@ -13,8 +13,23 @@ ctrl + F10
 ctrl + F11
   amixer -D pulse sset Master 5%+
 
-ctrl + F12
+alt + f
   flameshot gui  
+
+alt + p
+  jumpapp postman
+
+alt + s
+  jumpapp spotify
+
+alt + d
+  jumpapp dbeaver
+
+alt + c
+  jumpapp google-chrome-stable
+
+alt + t
+  jumpapp terminator
 
 # make sxhkd reload its configuration files:
 ctrl + F5

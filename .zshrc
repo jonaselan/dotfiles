@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$USER/.oh-my-zsh
@@ -48,6 +48,8 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
+[[ $TERM != "screen" ]] && exec tmux
+
 source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.sh
 source $ZSH_CUSTOM/plugins/zsh-interactive/zsh-interactive-cd.plugin.zsh
 
@@ -75,6 +77,7 @@ alias lsbr="br -dp"
 alias rc='rails console'
 alias rs='rails server'
 alias rdm='rake db:migrate'
+alias rdmr='rake db:migrate:redo'
 alias rdr='rake db:rollback'
 alias rds='rake db:seed'
 alias rdrs='rake db:reset'
@@ -216,5 +219,8 @@ copy() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 source /home/$USER/.config/broot/launcher/bash/br

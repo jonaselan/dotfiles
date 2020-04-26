@@ -13,7 +13,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'pbogut/fzf-mru.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 
@@ -33,6 +32,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nnoremap <c-p> :Files<cr>
 " nnoremap <c-f> :Rg<space>
 
+"" ctrl-f for search
+map <c-f> /
+
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader="\<space>"
@@ -49,9 +51,6 @@ omap s :normal vs<CR>
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
-
-" ctrl-f for search
-map <c-f> /
 
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

@@ -16,6 +16,9 @@ ctrl + F11
 alt + f
   flameshot gui  
 
+alt + v
+  jumpapp code
+
 alt + p
   jumpapp postman
 
@@ -25,11 +28,11 @@ alt + s
 alt + d
   jumpapp dbeaver
 
-alt + c
-  jumpapp google-chrome-stable
+alt + g
+  jumpapp google-chrome
 
 alt + t
-  jumpapp terminator
+  jumpapp alacritty
 
 # make sxhkd reload its configuration files:
 ctrl + F5

@@ -15,9 +15,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'ryanoasis/vim-devicons'
 
-" Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'mhinz/vim-signify'
+set encoding=UTF-8
 
 call plug#end()
 

@@ -4,7 +4,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=/home/$USER/.oh-my-zsh
 
-ZSH_THEME="intheloop" #spaceship
+ZSH_THEME="intheloop"
 
 if [ -e /usr/bin/fortune ] && [ -e /usr/bin/cowsay ]; then
   fortune | cowsay
@@ -12,12 +12,11 @@ else
   echo "install fortune and cowsay for fun"
 fi
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# custom fzf commands
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || bat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -54,13 +53,10 @@ source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.sh
 source $ZSH_CUSTOM/plugins/zsh-interactive/zsh-interactive-cd.plugin.zsh
 
 #general
-alias cat="bat"
-alias bat="cat"
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias vimrc='${=EDITOR} ~/.vimrc' # Quick access to the ~/.vimrc file
 alias ping='prettyping --nolegend'
 alias dev="$HOME/dev"
-alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias du="ncdu -rr -x --color dark --exclude .git --exclude node_modules --exclude-caches"
 alias help='tldr'
 alias h="history"
@@ -219,9 +215,6 @@ copy() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 source /home/$USER/.config/broot/launcher/bash/br
 

@@ -12,6 +12,7 @@ else
   echo "install fortune and cowsay for fun"
 fi
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # custom fzf commands
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || bat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
@@ -32,8 +33,6 @@ HIST_STAMPS="dd.mm.yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  # laravel
-  # docker-compose
   extract
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -50,7 +49,8 @@ export EDITOR='vim'
 [[ $TERM != "screen" ]] && exec tmux
 
 source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.sh
-source $ZSH_CUSTOM/plugins/zsh-interactive/zsh-interactive-cd.plugin.zsh
+# source $ZSH_CUSTOM/plugins/zsh-interactive/zsh-interactive-cd.plugin.zsh
+source $ZSH_CUSTOM/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 #general
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
@@ -213,8 +213,6 @@ compress() {
 copy() {
   xclip -sel clip < $1
 }
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source /home/$USER/.config/broot/launcher/bash/br
 

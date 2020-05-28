@@ -61,6 +61,7 @@ alias du="ncdu -rr -x --color dark --exclude .git --exclude node_modules --exclu
 alias help='tldr'
 alias h="history"
 alias lsbr="br -dp"
+alias c="bat"
 
 # php
 #alias pat="php artisan tinker"
@@ -94,6 +95,7 @@ alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
 alias gcotop="git checkout $(git log --branches -1 --pretty=format:"%H")" # go to last commit from current branch
 alias gsno="git show --name-only"
 alias gsta="git stash save --include-untracked"
+alias gauthor="git shortlog -s -n --all --no-merges"
 
 # remove the commit from branch
 alias grhd="git reset HEAD~ --hard"
@@ -131,9 +133,15 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -i'
 
+# react native
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export ANDROID_HOME=~/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/build-tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:~/Downloads/android-studio/bin
 
 export SMPCPATH=/home/jonaselan/Desktop/setup-my-pc
 

@@ -52,6 +52,16 @@ source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.sh
 # source $ZSH_CUSTOM/plugins/zsh-interactive/zsh-interactive-cd.plugin.zsh
 source $ZSH_CUSTOM/plugins/fzf-tab/fzf-tab.plugin.zsh
 
+# zsh
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
+
 #general
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias vimrc='${=EDITOR} ~/.vimrc' # Quick access to the ~/.vimrc file

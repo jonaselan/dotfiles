@@ -105,7 +105,6 @@ alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
 alias gcotop="git checkout $(git log --branches -1 --pretty=format:"%H")" # go to last commit from current branch
 alias gsno="git show --name-only"
 alias gsta="git stash save --include-untracked"
-alias gauthor="git shortlog -s -n --all --no-merges"
 
 # remove the commit from branch
 alias grhd="git reset HEAD~ --hard"
@@ -160,10 +159,10 @@ vman () {
   man $1 | vim -
 }
 
-# fstash - easier way to deal with stashes
+# gsf - easier way to deal with stashes
 # type fstash to get a list of your stashes
 # enter shows you the contents of the stash
-fstash() {
+gsf() {
   while out=$(git stash list "$@" |
             fzf --ansi --no-sort --reverse --print-query --query="$query"      \
                 --expect=ctrl-m,ctrl-b,del \
@@ -201,8 +200,8 @@ do
 done
 }
 
-# fgsw - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
-fgsw() {
+# gswf - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
+gswf() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |

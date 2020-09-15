@@ -29,3 +29,5 @@
 	enabled = true
 #[sequence]
 #	editor = interactive-rebase-tool # https://github.com/MitMaro/git-interactive-rebase-tool
+[pull]
+	rebase = false

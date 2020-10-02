@@ -1,0 +1,14 @@
+[aws]
+disabled = true
+[docker]
+disabled = true
+[git_branch]
+symbol = " "
+[nodejs]
+disabled = true
+[package]
+disabled = true
+[ruby]
+disabled = true
+
+

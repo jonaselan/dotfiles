@@ -6,6 +6,8 @@ export ZSH=/home/$USER/.oh-my-zsh
 
 ZSH_THEME="intheloop"
 
+eval "$(starship init zsh)"
+
 if [ -e /usr/bin/fortune ] && [ -e /usr/bin/cowsay ]; then
   fortune | cowsay
 else
@@ -40,6 +42,7 @@ plugins=(
   fzf # find!
   bgnotify # nofity long task
   sudo # double esc
+  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -153,6 +156,8 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:~/Downloads/android-studio/bin
 
 export SMPCPATH=/home/jonaselan/Desktop/setup-my-pc
+
+export NODE_OPTIONS=--max-http-header-size=16384 
 
 # use vim for man pages
 vman () {

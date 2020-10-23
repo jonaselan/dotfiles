@@ -48,6 +48,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
+export BROWSER='google-chrome-stable'
 
 [[ $TERM != "screen" ]] && exec tmux
 
@@ -214,8 +215,8 @@ gswf() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# fgc - checkout git commit
-fgc() {
+# grf - restore changes
+grf() {
   local commits commit
   commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
   commit=$(echo "$commits" | fzf --tac +s +m -e) &&

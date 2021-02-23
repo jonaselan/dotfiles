@@ -6,7 +6,11 @@ export ZSH=/home/$USER/.oh-my-zsh
 
 ZSH_THEME="intheloop"
 
-# eval "$(starship init zsh)"
+if [ -e /usr/local/bin/starship ]; then
+   eval "$(starship init zsh)"
+else
+   curl -fsSL https://starship.rs/install.sh | bash
+fi
 
 if [ -e /usr/bin/fortune ] && [ -e /usr/bin/cowsay ]; then
   fortune | cowsay

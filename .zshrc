@@ -6,7 +6,7 @@ export ZSH=/home/$USER/.oh-my-zsh
 
 ZSH_THEME="intheloop"
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 if [ -e /usr/bin/fortune ] && [ -e /usr/bin/cowsay ]; then
   fortune | cowsay

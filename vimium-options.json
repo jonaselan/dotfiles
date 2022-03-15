@@ -2,14 +2,14 @@
   "settingsVersion": "1.67",
   "exclusionRules": [
     {
-      "pattern": "https://www.youtube.com/watch/*",
+      "pattern": "https?://www.youtube.com/*",
       "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmap F\nmap fb LinkHints.activateModeToOpenInNewTab\n\nunmap f\nmap ff LinkHints.activateMode\n\nmap [ previousTab\n\nmap ] nextTab\n\nunmap x\nmap xx removeTab\n\nunmap H\nmap cc goBack\n\nunmap L\nmap vv goForward\n\nunmap yt\nmap fd duplicateTab",
+  "keyMappings": "unmap F\nmap fb LinkHints.activateModeToOpenInNewTab\n\nunmap f\nmap ff LinkHints.activateMode\n\nunmap x\nmap xx removeTab\n\nunmap H\nmap [ goBack\n\nunmap L\nmap ] goForward\n\nunmap yt\nmap fd duplicateTab\n\nunmap p \nmap PP openCopiedUrlInCurrentTab\n\nunmap <a-p>\nmap pp togglePinTab\n\nmap q previousTab\n\nmap w nextTab",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",

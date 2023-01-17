@@ -1,4 +1,4 @@
-# add this to end of .zshrc or .bashrc
+# add this to end of .zshrc
 
 autoload -U add-zsh-hook
 
@@ -20,7 +20,3 @@ load-nvmrc() {
 
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
-
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi

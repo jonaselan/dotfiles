@@ -1,3 +1,5 @@
+# broot config file. Place in ~/.config/broot/ 
+# https://github.com/Canop/broot
 
 [[verbs]]
 invocation = "edit"

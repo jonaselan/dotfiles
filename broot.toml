@@ -1,4 +1,5 @@
-# broot config file. Place in ~/.config/broot/ 
+# broot config file. Rename it to confi.toml
+# Place in ~/.config/broot/conf.toml
 # https://github.com/Canop/broot
 
 [[verbs]]

@@ -1,0 +1,6 @@
+[user]
+  name = Jonas Elan
+  email = jonas.elan@work.com
+[core]
+  # TODO: adaptar para o caminho do seu computador
+  sshCommand = ssh -i ~/.ssh/id_rsa_work

@@ -1,12 +1,12 @@
-[user]
-  name = Jonas Elan
-  email = jonas.elan@gmail.com
 [core]
   editor = vim
-  excludesfile = /home/jonaselan/.gitignore_global
+  excludesfile = ~/.gitignore-global
   autocrlf = input
-#  pager = delta --dark
 	pager = diff-so-fancy | less --tabs=4 -RFX
+[includeIf "gitdir:~/dev/personal/"]
+  path = ~/dev/personal/.gitconfig-personal
+[includeIf "gitdir:~/dev/work/"]
+  path = ~/dev/work/.gitconfig-work
 [color "diff"]
   meta = "yellow bold"
   commit = "green bold"
@@ -27,8 +27,6 @@
   fsckobjects = true
 [rerere]
 	enabled = true
-#[sequence]
-#	editor = interactive-rebase-tool # https://github.com/MitMaro/git-interactive-rebase-tool
 [pull]
 	rebase = false
 [push]

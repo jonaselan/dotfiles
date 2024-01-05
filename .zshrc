@@ -54,7 +54,11 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='vim'
 export BROWSER='google-chrome-stable'
 
-[[ $TERM != "screen" ]] && exec tmux
+# create a tmux session (TMUX) if not exist
+if [ -z "$TMUX" ]
+  then
+  tmux attach -t TMUX || tmux new -s TMUX
+fi
 
 source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.sh
 # source $ZSH_CUSTOM/plugins/zsh-interactive/zsh-interactive-cd.plugin.zsh

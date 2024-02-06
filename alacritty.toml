@@ -1,0 +1,44 @@
+live_config_reload = true
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 13
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
+
+[window]
+decorations = "Full"
+startup_mode = "Windowed"
+dynamic_title = true
+opacity = 0.8
+resize_increments = true
+
+  [window.position]
+  x = 650
+  y = 250
+
+  [window.padding]
+  x = 5
+  y = 1
+
+[cursor]
+thickness = 0.15
+
+  [cursor.style]
+  shape = "Block"
+
+[shell]
+program = "/bin/zsh"
+args = [ "--login" ]
+
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+color = "#ffffff"
+
+[selection]
+save_to_clipboard = true

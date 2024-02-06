@@ -51,16 +51,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='vim'
-export BROWSER='google-chrome-stable'
-
-# create a tmux session (TMUX) if not exist
-if [ -z "$TMUX" ]
-  then
-  tmux attach -t TMUX || tmux new -s TMUX
-fi
-
-source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.sh
+# Zsh Customs
+# source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.sh
 # source $ZSH_CUSTOM/plugins/zsh-interactive/zsh-interactive-cd.plugin.zsh
 source $ZSH_CUSTOM/plugins/fzf-tab/fzf-tab.plugin.zsh
 
@@ -73,6 +65,11 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
+
+alias reload!=". ~/.zshrc"
+
+export EDITOR='vim'
+export BROWSER='google-chrome-stable'
 
 #general
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
@@ -113,10 +110,10 @@ alias adroute='adonis route:list'
 
 # git
 alias gfaa="gfa && gco develop && ggpull && gco master && ggpull"
-# alias gcupdate="git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"  # TEST delete local branch merged with master
 alias gcotop="git checkout $(git log --branches -1 --pretty=format:"%H")" # go to last commit from current branch
 alias gsno="git show --name-only"
 alias gsta="git stash save --include-untracked"
+# alias gcupdate="git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"  # TEST delete local branch merged with master
 
 # remove the commit from branch
 alias grhd="git reset HEAD~ --hard"
@@ -125,9 +122,6 @@ alias grs="git reset HEAD~ --soft"
 
 # docker
 alias dcdangling="docker rmi \$(docker images -f \"dangling=true\" -q)"
-
-#zsh
-alias reload!=". ~/.zshrc"
 
 # exa
 alias ls="exa"

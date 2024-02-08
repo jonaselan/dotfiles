@@ -32,8 +32,8 @@ thickness = 0.15
   shape = "Block"
 
 [shell]
-program = "/bin/zsh"
-args = [ "--login" ]
+program = "/usr/local/bin/tmux"
+args = [ "new-session" ]
 
 [bell]
 animation = "EaseOutExpo"

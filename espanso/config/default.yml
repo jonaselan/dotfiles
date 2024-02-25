@@ -1,0 +1,9 @@
+# espanso configuration file
+# should be placed in $HOME/.config/espanso/config/default.yml
+
+toggle_key: RIGHT_SHIFT
+search_shortcut: ALT+SPACE
+
+name: Jonas Elan
+package_author: Jonas Elan <jonas.elan@gmail.com>
+

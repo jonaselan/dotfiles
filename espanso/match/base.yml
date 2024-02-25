@@ -1,0 +1,41 @@
+# espanso match file
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+matches:
+  # utils
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  # Personal
+  - trigger: ":name"
+    replace: "Jonas Elan Teixeira Alves"
+  - trigger: ":mail"
+    replace: "jonas.elan@gmail.com"
+
+  # Fun
+  - trigger: ":shrug"
+    replace: "¯\\_(ツ)_/¯"
+
+  # example of form
+  # - trigger: :lenny
+  #   form: "[[smileys]]"
+  #   form_fields:
+  #     smileys:
+  #       type: choice
+  #       values:
+  #       - '¯\\_(ツ)_/¯'
+  #       - '(╯°□°）╯︵ ┻━┻'
+  #       - '( ͡ಠ ʖ̯ ͡ಠ)'
+  #       - '☉ ‿ ⚆'
+  #       - 'ʕ•ᴥ•ʔ'
+  #       - '⋆｡˚ ☁︎ ˚｡⋆｡˚☽˚｡⋆'
+  #       - '◤◢◣◥◤◢◣◥'
+  #       - '(づᵔ◡ᵔ)づ'
+  #       - '|ᵔ‿ᵔ|'
+  #       - '⤜(*﹏*)⤏'
+  #       - 'ツ'

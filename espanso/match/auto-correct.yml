@@ -1,0 +1,24 @@
+# espanso match file
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+matches:
+  # auto-correct
+  - triggers: [lengh, lentgh, lenth, lentgh]
+    replace: length
+    propagate_case: true
+    word: true
+  - trigger: adress
+    replace: address
+    propagate_case: true
+    word: true
+  - trigger: alchol
+    replace: alcohol
+    propagate_case: true
+  - trigger: availible
+    replace: available
+    propagate_case: true
+    word: true
+  - trigger: coloumn
+    replace: column
+    propagate_case: true
+    word: true

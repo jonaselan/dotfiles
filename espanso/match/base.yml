@@ -2,21 +2,22 @@
 # For a complete introduction, visit the official docs at: https://espanso.org/docs/
 
 matches:
-  # utils
+  # Personal
+  - trigger: ":fname"
+    replace: "Jonas Elan Teixeira Alves"
+	 - trigger: ":name"
+    replace: "Jonas Elan"
+  - trigger: ":mail"
+    replace: "jonas.elan@gmail.com"
+
+	 # utils
   - trigger: ":date"
     replace: "{{mydate}}"
     vars:
       - name: mydate
         type: date
         params:
-          format: "%m/%d/%Y"
-
-  # Personal
-  - trigger: ":name"
-    replace: "Jonas Elan Teixeira Alves"
-  - trigger: ":mail"
-    replace: "jonas.elan@gmail.com"
-
+          format: "%d/%m/%Y"
   # Fun
   - trigger: ":shrug"
     replace: "¯\\_(ツ)_/¯"

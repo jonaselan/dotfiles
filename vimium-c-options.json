@@ -1,0 +1,53 @@
+{
+	"name": "Vimium C",
+	"@time": "2/27/2024, 10:53:04 AM",
+	"time": 1709041984618,
+	"environment": {
+		"extension": "1.99.994",
+		"platform": "mac",
+		"chromium": 121
+	},
+	"exclusionRules": [
+		{
+			"passKeys": "",
+			"pattern": "^https://www\\.youtube\\.com/"
+		}
+	],
+	"keyLayout": 2,
+	"keyMappings": [
+		"#!no-check",
+		"map zz zoomIn",
+		"",
+		"map Z zoomReset",
+		"",
+		"unmap F",
+		"map fb LinkHints.activateOpenInNewTab",
+		"",
+		"unmap f",
+		"map ff LinkHints.activate",
+		"",
+		"unmap x",
+		"map xx removeTab",
+		"",
+		"unmap H",
+		"map [ goBack",
+		"",
+		"unmap L",
+		"map ] goForward",
+		"",
+		"unmap yt",
+		"map fd duplicateTab",
+		"",
+		"unmap p ",
+		"map PP openCopiedUrlInCurrentTab",
+		"",
+		"unmap <a-p>",
+		"map pp togglePinTab",
+		"",
+		"map q previousTab",
+		"",
+		"map w nextTab",
+		""
+	],
+	"vimSync": true
+}

@@ -26,8 +26,10 @@
 [transfer]
   fsckobjects = true
 [rerere]
-	enabled = true
+  enabled = true
 [pull]
-	rebase = false
+  rebase = false
 [push]
-	followTags = true
+  followTags = true
+[init]
+  defaultBranch = main

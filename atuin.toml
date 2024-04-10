@@ -1,6 +1,7 @@
 ######### SETUP #########
-## 1. move this file to ~/.config/atuin/config.toml 
-## 2. add this code in .zshrc: eval "$(atuin init zsh --disable-up-arrow)"
+## 1. Rename to config.toml
+## 2. move this file to ~/.config/atuin/config.toml 
+## 3. add this code in .zshrc: eval "$(atuin init zsh --disable-up-arrow)"
 
 ## where to store your database, default is your system data directory
 ## linux/mac: ~/.local/share/atuin/history.db
